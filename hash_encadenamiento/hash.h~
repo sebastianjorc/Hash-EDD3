@@ -13,6 +13,6 @@
 # define nodo_h
 # endif
 
-typedef int Clave;
+typedef int Clave
 
 typedef struct _hash{}Hash;
