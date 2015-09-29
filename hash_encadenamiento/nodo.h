@@ -8,7 +8,4 @@
 # define stdlib_h
 # endif
 
-# ifndef nodo_h
-# include "nodo.h"
-# define nodo_h
-# endif
+typedef struct _nodo{}Nodo;
