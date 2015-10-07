@@ -19,7 +19,7 @@ typedef struct _nodo{
 }Nodo;
 
 
-Nodo *inicializar_nodo(){
+Nodo* inicializar_nodo(){
 
 }
 

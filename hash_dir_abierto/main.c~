@@ -8,23 +8,18 @@
 # define stdlib_h
 # endif
 
+# ifndef hash_h
+# include "hash.h"
+# define hash_h
+# endif
+
 # ifndef nodo_h
 # include "nodo.h"
 # define nodo_h
 # endif
 
-# ifndef dato_h
-# include "dato.h"
-# define dato_h
-# endif
-
-typedef struct _hach{
-	Nodo *nodo;
-	int cantidadDatos;
-	int tamaño;
-	char tipoTabla;	
-}Hach;
-
-Hash *inicializar_hash(){
+main (){
+	Hash hash=inicializar_hash();
 	
 }
+

@@ -20,3 +20,8 @@
 
 
 
+main (){
+	Hash hash=inicializar_hash();
+	
+}
+
