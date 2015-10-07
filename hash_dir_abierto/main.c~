@@ -18,8 +18,23 @@
 # define nodo_h
 # endif
 
-main (){
-	Hash hash=inicializar_hash();
-	
+typedef struct _cabecera{
+	int cantidadDatos,
+	     tamano;
+	char tipoTabla;	
+}Cabecera;
+
+Cabecera *inicializar_cabecera(){
+	Cabecera *cabecera=(Cabecera*)malloc(sizeof(Cabecera));
+	cabecera->cantidadDatos=0;
+	cabecera->tamano=0;
+	cabecera->tipoTabla='a';
+	return *cabecera;
+}
+
+int main (){
+	Cabecera* cabecera=inicializar_cabecera();
+	Hash* hash=inicializar_hash();
+	return 0;
 }
 

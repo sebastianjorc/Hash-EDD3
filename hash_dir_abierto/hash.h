@@ -18,13 +18,15 @@
 # define dato_h
 # endif
 
-typedef struct _hach{
-	Nodo *nodo;
-	int cantidadDatos;
-	int tamaño;
-	char tipoTabla;	
-}Hach;
+typedef struct _hash{ //nRanuras=5;
+	Nodo *nodo[5];
+}Hash;
 
 Hash *inicializar_hash(){
+	Hash* hash=(Hash*)malloc(sizeof(Hash));
+	for (int i=0; i<5; i++){
+		hash->nodo[i]=inicializar_nodo;
+	}
+	return hash;
 	
 }

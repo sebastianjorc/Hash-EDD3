@@ -15,11 +15,14 @@
 
 typedef struct _nodo{
 	Datos* datos;
-	int clave;
+	struct _nodo* sgte;
 }Nodo;
 
 
 Nodo *inicializar_nodo(){
-
+	Nodo *nodo=(Nodo*)malloc(sizeof(Nodo));
+	nodo->datos=inicializar_datos();
+	nodo->sgte=NULL;
+	return nodo;
 }
 

@@ -17,6 +17,9 @@ typedef struct _datos{
 	char nombre;
 }Datos;
 
-Datos *inicializar_dato(){
-
+Datos *inicializar_datos(){
+	Datos *datos=(Datos*)malloc(sizeof(Datos));
+	datos->rut=1;
+	datos->nombre='a';
+	return dato;
 }
