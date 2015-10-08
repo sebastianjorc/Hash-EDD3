@@ -18,7 +18,6 @@ typedef struct _nodo{
 	struct _nodo* sgte;
 }Nodo;
 
-
 Nodo *inicializar_nodo(){
 	Nodo *nodo=(Nodo*)malloc(sizeof(Nodo));
 	nodo->datos=inicializar_datos();
@@ -26,3 +25,7 @@ Nodo *inicializar_nodo(){
 	return nodo;
 }
 
+int nodo_es_vacio(Nodo *nodo){
+	if (nodo==NULL)	return 1;
+	return 0;
+}
