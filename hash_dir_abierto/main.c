@@ -18,7 +18,10 @@
 # define nodo_h
 # endif
 
+# define tam 5
+
 typedef struct _cabecera{
+	Hash tablaHash[tam];
 	int cantidadDatos,
 	    cantidadNodos;
 	char tipoTabla;	
@@ -30,6 +33,7 @@ void imprimir_cabecera(Cabecera *cabecera);
 
 Cabecera *inicializar_cabecera(){
 	Cabecera *cabecera=(Cabecera*)malloc(sizeof(Cabecera));
+	inicializar_tabla_hash(cabecera->tablaHash);
 	cabecera->cantidadDatos=0;
 	cabecera->cantidadNodos=0;
 	cabecera->tipoTabla='a';
@@ -37,15 +41,14 @@ Cabecera *inicializar_cabecera(){
 }
 
 void imprimir_cabecera(Cabecera *cabecera){
-	printf ("Cantidad de datos:\t%i", (cabecera->cantidadDatos));
-	printf ("Cantidad de Nodos:\t%i", (cabecera->cantidadNodos));
-	printf ("Tipo de tabla:\t%c", (cabecera->tipoTabla));
+	printf ("Cantidad de datos:\t%i\n", (cabecera->cantidadDatos));
+	printf ("Cantidad de Nodos:\t%i\n", (cabecera->cantidadNodos));
+	printf ("Tipo de tabla:\t%c\n", (cabecera->tipoTabla));
+	imprimir_tabla_hash(cabecera->tablaHash);
 }
 
 int main (){
 	Cabecera* cabecera=inicializar_cabecera();
-	Hash* hash=inicializar_hash();
 	imprimir_cabecera(cabecera);
-	imprimir_hash(hash);
 	return 0;
 }

@@ -20,28 +20,26 @@
 
 # define tam 5
 
+typedef int Alfa;
+
 typedef struct _hash{ //nRanuras=5;
-	Nodo nodo[tam];
+	Alfa alfa;
+	Nodo *nodo;
 }Hash;
 
-Hash *inicializar_hash();
-void imprimir_hash(Hash *hash);
-//PROBLEMA CON ESTRUCTURA HASH Y MANEJO DEL ARREGLO DE NODOS.
-Hash *inicializar_hash(){
-	Hash* hash=(Hash*)malloc(sizeof(Hash));
+void inicializar_tabla_hash(Hash tablaHash[tam]);
+void imprimir_tabla_hash(Hash tablaHash[tam]);
+
+void inicializar_tabla_hash(Hash tablaHash[tam]){
 	for (int i=0; i<tam; i++){
-		(hash.(nodo[i]))=inicializar_nodo();
+		(tablaHash[i]).alfa=i;
+		tablaHash[i].nodo=inicializar_nodo(i);
 	}
-	return hash;
 }
 
-void imprimir_hash(Hash *hash){
+void imprimir_tabla_hash(Hash tablaHash[tam]){
 	for (int i=0; i<tam; i++){
-		if (nodo_es_vacio(hash.(nodo[i]))==0){
-			Nodo *aux= (hash.(nodo[i]));
-			do{	imprimir_nodo(aux);
-				aux=aux->sgte;
-			}while ( !nodo_es_vacio(aux->sgte) );
-		}
+			printf("\nAlfa = %i\n",(tablaHash[i].alfa));
+			imprimir_nodo(tablaHash[i].nodo);
 	}
 }

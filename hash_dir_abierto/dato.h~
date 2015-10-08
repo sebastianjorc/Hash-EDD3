@@ -17,9 +17,13 @@ typedef struct _datos{
 	char nombre;
 }Datos;
 
-Datos *inicializar_datos(){
+Datos *inicializar_datos(int i){
 	Datos *datos=(Datos*)malloc(sizeof(Datos));
-	datos->rut=1;
-	datos->nombre='a';
-	return dato;
+	datos->rut=i;
+	datos->nombre='a'+i;
+	return datos;
+}
+
+void imprimir_datos(Datos *datos){
+	printf("%i\t%c\n", (datos->rut), (datos->nombre));
 }
