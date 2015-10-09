@@ -18,10 +18,6 @@ typedef struct _nodo{
 	struct _nodo* sgte;
 }Nodo;
 
-Nodo *inicializar_nodo(int i);
-int nodo_es_vacio(Nodo *nodo);
-void imprimir_nodo(Nodo *nodo);
-
 Nodo *inicializar_nodo(int i){
 	Nodo *nodo=(Nodo*)malloc(sizeof(Nodo));
 	nodo->datos=inicializar_datos(i);

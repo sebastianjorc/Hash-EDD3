@@ -18,7 +18,7 @@
 # define nodo_h
 # endif
 
-# define tam10
+# define tam 5
 
 typedef struct _cabecera{
 	Hash tablaHash[tam];
