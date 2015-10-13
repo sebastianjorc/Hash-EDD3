@@ -8,6 +8,11 @@
 # define stdlib_h
 # endif
 
+#ifndef TIME_H
+#include <time.h>
+#define TIME_H
+#endif
+
 # ifndef hash_h
 # include "hash.h"
 # define hash_h
@@ -18,10 +23,8 @@
 # define nodo_h
 # endif
 
-# define tam 200
 
 typedef struct _cabecera{
-	//Hash tablaHash[tam];
 	Nodo *nodo;
 	int cantidadDatos,
 	    cantidadNodos;
@@ -29,8 +32,8 @@ typedef struct _cabecera{
 }Cabecera;
 
 
-//Cabecera *inicializar_cabecera();
-//void imprimir_cabecera(Cabecera *cabecera);
+Cabecera *inicializar_cabecera();
+void imprimir_cabecera(Cabecera *cabecera);
 
 Cabecera *inicializar_cabecera(){
 	int i=0;
@@ -50,10 +53,16 @@ void imprimir_cabecera(Cabecera *cabecera){
 
 int main() {
 	Cabecera* cabecera=inicializar_cabecera();
-	int m = (cabecera->cantidadNodos)%((cabecera->cantidadNodos)/70);
+	int m = (cabecera->cantidadNodos)%700;
+	printf("Hash tendrá %i\n", m);getchar();
 	Hash tablaHash[m];
-	inicializar_tabla_hash((cabecera->nodo),m,tablaHash); 
+//	insertar_nodo(11111,cabecera->nodo,m,NULL);
+	buscar_nodo(1221,cabecera->nodo,m,NULL);
+	inicializar_tabla_hash((cabecera->nodo),m,tablaHash);
+//	insertar_nodo(11112,cabecera->nodo,m, tablaHash); 
+	buscar_nodo(1221,cabecera->nodo, m, tablaHash);
 	imprimir_cabecera(cabecera);
 	imprimir_tabla_hash(m,tablaHash);
+
 	return -1;
 }

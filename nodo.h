@@ -8,6 +8,11 @@
 # define stdlib_h
 # endif
 
+#ifndef TIME_H
+#include <time.h>
+#define TIME_H
+#endif
+
 # ifndef dato_h
 # include "dato.h"
 # define dato_h
@@ -19,13 +24,14 @@ typedef struct _nodo{
 	struct _nodo* sgte;
 }Nodo;
 
-//Nodo *inicializar_nodo(int i);
-//int nodo_es_vacio(Nodo *nodo);
-//void imprimir_nodo(Nodo *nodo);
+Nodo *inicializar_nodo(int i);
+int nodo_es_vacio(Nodo *nodo);
+void imprimir_nodo(Nodo *nodo);
+Nodo* cargar_archivo(int *i, Nodo *nodo);
+void establecer_alfa(Nodo *nodo, int m);
 
 Nodo *inicializar_nodo(int i){
 	Nodo *nodo=(Nodo*)malloc(sizeof(Nodo));
-	//nodo->datos=inicializar_datos(i);
 	nodo->sgte=NULL;
 	return nodo;
 }
@@ -42,7 +48,9 @@ void imprimir_nodo(Nodo *nodo){
 Nodo* cargar_archivo(int *i, Nodo *nodo){
 	nodo=NULL; nodo=(Nodo*)malloc(sizeof(Nodo));
 	Datos *dato=cargar_datos(nodo->datos,i);
+    	clock_t start = clock();
 	while (dato->sgte!=NULL){
+		
 		Nodo *nuevo=(Nodo*)malloc(sizeof(Nodo));
 		nuevo->datos=dato;
 		dato=dato->sgte;
@@ -57,6 +65,7 @@ Nodo* cargar_archivo(int *i, Nodo *nodo){
 			aux->sgte=nuevo;
 		}
 	}
+   	printf("Tiempo transcurrido en cargar datos desde archivos y transformarlos en nodos: %f\n", ((double)clock() - start) / CLOCKS_PER_SEC);getchar();
 	return nodo;
 }
 
@@ -65,5 +74,5 @@ void establecer_alfa(Nodo *nodo, int m){
 	while (aux!=NULL){
 		aux->alfa=buscar_alfa(aux->datos,m);
 		aux=aux->sgte;
-	}printf("holdsaa");getchar();
+	}
 }

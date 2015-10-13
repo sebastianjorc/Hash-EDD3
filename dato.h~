@@ -8,6 +8,16 @@
 # define stdlib_h
 # endif
 
+#ifndef TIME_H
+#include <time.h>
+#define TIME_H
+#endif
+
+#ifndef STRING_H
+#include <string.h>
+#define STRING_H
+#endif
+
 typedef struct _datos{
 	int pk,cod1;
 	char pais[10],NN[2];
@@ -15,15 +25,10 @@ typedef struct _datos{
 	struct _datos *sgte;
 }Datos;
 
-//Datos *inicializar_datos(int i);
-//void imprimir_datos(Datos *datos);
+void imprimir_datos(Datos *datos);
+Datos *cargar_datos(Datos *dato, int *i);
+int buscar_alfa(Datos* dato, int m);
 
-/*Datos *inicializar_datos(int i){
-	Datos *datos=(Datos*)malloc(sizeof(Datos));
-	datos->rut=i;
-	datos->nombre='a'+i;
-	return datos;
-}*/
 
 void imprimir_datos(Datos *datos){
 	printf("%i\t%s\t%i\t%f\t%f\t%s\n", (datos->pk), (datos->pais), (datos->cod1), (datos->cod2), (datos->cod3), (datos->NN));
@@ -51,4 +56,16 @@ Datos *cargar_datos(Datos *dato, int *i){
 
 int buscar_alfa(Datos* dato, int m){
 	return ((dato->pk)%m);
+}
+
+Datos *inicializar_datos(int clave){
+	Datos *nuevo=(Datos*)malloc(sizeof(Datos));
+	nuevo->pk=clave;
+	nuevo->pais=NULL;
+	nuevo->cod1=0;
+	nuevo->cod2=0.0;
+	nuevo->cod3=0;
+	nuevo->NN=NULL;
+	nuevo->sgte=NULL;
+	return nuevo;
 }
